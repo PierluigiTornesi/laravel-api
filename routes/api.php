@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+//route test per verificare il funzionamento di postman e dell'api
+Route::get('/test', function(){
+    return response()->json([
+        'name' => 'Pippo',
+        'state' => 'Italy'
+    ]);
 });
+
+//route per prendere i projects
+Route::get('/projects',[ProjectController::class, 'index']);
