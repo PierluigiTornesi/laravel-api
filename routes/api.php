@@ -25,3 +25,5 @@ Route::get('/test', function(){
 
 //route per prendere i projects
 Route::get('/projects',[ProjectController::class, 'index']);
+//route per visualizzare u solo project
+Route::get('/projects/{slug}', [ProjectController::class, 'show']);
